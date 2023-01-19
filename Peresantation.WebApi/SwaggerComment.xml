@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Peresantation.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Peresantation.WebApi.Controllers.StateController.GetAll">
+            <summary>
+            دریافت لیست استان ها به همره شهرهای آن و کد شهر
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
