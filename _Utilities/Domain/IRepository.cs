@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
 
-namespace PostModule.Domain.Services
+namespace _Utilities.Domain
 {
-    public interface IRepository<Tkey , T> where T : class
+    public interface IRepository<Tkey, T> where T : class
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> GetAllBy(Expression<Func<T, bool>> expression);

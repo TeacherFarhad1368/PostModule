@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PostModule.Infrastracture.EF;
 
@@ -11,9 +12,10 @@ using PostModule.Infrastracture.EF;
 namespace PostModule.Infrastracture.EF.Migrations
 {
     [DbContext(typeof(Post_Context))]
-    partial class Post_ContextModelSnapshot : ModelSnapshot
+    [Migration("20230122153043_AddPostsTables")]
+    partial class AddPostsTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
