@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PostModule.Domain.Services;
+﻿using _Utilities.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PostModule.Infrastracture.EF.Repositories
+namespace _Utilities.Infrastructure
 {
     public class Repository<Tkey, T> : IRepository<Tkey, T> where T : class
     {

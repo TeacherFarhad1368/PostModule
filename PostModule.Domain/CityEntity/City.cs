@@ -1,5 +1,5 @@
-﻿using _Utilities.Enums;
-using PostModule.Domain.Common;
+﻿using _Utilities.Domain;
+using _Utilities.Enums;
 using PostModule.Domain.StateEntity;
 
 namespace PostModule.Domain.CityEntity

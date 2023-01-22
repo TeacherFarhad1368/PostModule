@@ -1,4 +1,5 @@
-﻿using PostModule.Application.Contract.StateApplication;
+﻿using _Utilities.Domain;
+using PostModule.Application.Contract.StateApplication;
 using PostModule.Domain.StateEntity;
 using System;
 using System.Collections.Generic;

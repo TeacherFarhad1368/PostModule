@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PostModule.Domain.Common
+namespace _Utilities.Domain
 {
     public class BaseEntity<TKey>
     {
