@@ -1,4 +1,5 @@
 ﻿using _Utilities.Infrastructure;
+using PostModule.Application.Contract.PostPriceApplication;
 using PostModule.Domain.PostEntity;
 using PostModule.Domain.Services;
 using System;
@@ -15,6 +16,38 @@ namespace PostModule.Infrastracture.EF.Repositories
         public PostPriceRepository(Post_Context context) : base(context)
         {
             _context = context;
+        }
+
+        public List<PostPriceModel> GetAllForPost(int postId)
+        {
+            return GetAllByQuery(p => p.PostId == postId).Select(p => new PostPriceModel
+            {
+                CityPrice=p.CityPrice,
+                End=p.End,
+                Id=p.Id,
+                InsideStatePrice=p.InsideStatePrice,
+                Start=p.Start,
+                StateCenterPrice=p.StateCenterPrice,
+                StateClosePrice=p.StateClosePrice,
+                StateNonClosePrice=p.StateNonClosePrice,
+                TehranPrice=p.TehranPrice
+            }).ToList();
+        }
+
+        public EditPostPrice GetForEdit(int id)
+        {
+            return _context.PostPrices.Select(p => new EditPostPrice
+            {
+                CityPrice = p.CityPrice,
+                End = p.End,
+                Id = p.Id,
+                InsideStatePrice = p.InsideStatePrice,
+                Start = p.Start,
+                StateCenterPrice = p.StateCenterPrice,
+                StateClosePrice = p.StateClosePrice,
+                StateNonClosePrice = p.StateNonClosePrice,
+                TehranPrice = p.TehranPrice
+            }).SingleOrDefault(p => p.Id == id);
         }
     }
 }
