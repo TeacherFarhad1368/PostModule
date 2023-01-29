@@ -1,4 +1,6 @@
-﻿using _Utilities.Infrastructure;
+﻿using _Utilities.Application;
+using _Utilities.Infrastructure;
+using PostModule.Application.Contract.PostApplication;
 using PostModule.Domain.PostEntity;
 using PostModule.Domain.Services;
 using System;
@@ -15,6 +17,39 @@ namespace PostModule.Infrastracture.EF.Repositories
         public PostRepository(Post_Context context) : base(context)
         {
             _context = context;
+        }
+
+        public List<PostModel> GetAllPosts()
+        {
+            return GetAllQuery().Select(p => new PostModel
+            {
+                CityPricePlus=p.CityPricePlus,
+                CreationDate=p.CreateDate.ToPersainDate(),
+                Id=p.Id,
+                InsideStatePricePlus = p.InsideStatePricePlus,
+                StateCenterPricePlus = p.StateCenterPricePlus,
+                StateClosePricePlus=p.StateClosePricePlus,
+                StateNonClosePricePlus=p.StateNonClosePricePlus,
+                Status=p.Status,
+                TehranPricePlus=p.TehranPricePlus,
+                Title=p.Title
+            }).ToList();
+        }
+
+        public EditPost GetForEdit(int id)
+        {
+            return _context.Posts.Select(p => new EditPost
+            {
+                CityPricePlus = p.CityPricePlus,
+                Id = p.Id,
+                InsideStatePricePlus = p.InsideStatePricePlus,
+                StateCenterPricePlus = p.StateCenterPricePlus,
+                StateClosePricePlus = p.StateClosePricePlus,
+                StateNonClosePricePlus = p.StateNonClosePricePlus,
+                Status = p.Status,
+                TehranPricePlus = p.TehranPricePlus,
+                Title = p.Title
+            }).SingleOrDefault(p => p.Id == id);
         }
     }
 }
