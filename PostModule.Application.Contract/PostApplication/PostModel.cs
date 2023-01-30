@@ -12,5 +12,9 @@
         public int StateClosePricePlus { get; set; }
         public int StateNonClosePricePlus { get; set; }
         public string CreationDate { get; set; }
+        public string Description { get; set; }
+        public bool Active { get; set; }
+        public bool InsideCity { get; set; }
+        public bool OutsideCity { get; set; }
     }
 }

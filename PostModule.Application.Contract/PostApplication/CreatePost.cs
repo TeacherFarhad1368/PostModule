@@ -30,5 +30,8 @@ namespace PostModule.Application.Contract.PostApplication
         [Display(Name = "اضافه بار هر کیلوگرم برون استانی غیر هم جوار (تومان)")]
         [Required(ErrorMessage = ValidationMessages.RequiredMessage)]
         public int StateNonClosePricePlus { get; set; }
+        [Display(Name = "توضیحات")]
+        [Required(ErrorMessage = ValidationMessages.RequiredMessage)]
+        public string Description { get; set; }
     }
 }

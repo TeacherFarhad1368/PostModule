@@ -32,7 +32,11 @@ namespace PostModule.Infrastracture.EF.Repositories
                 StateNonClosePricePlus=p.StateNonClosePricePlus,
                 Status=p.Status,
                 TehranPricePlus=p.TehranPricePlus,
-                Title=p.Title
+                Title=p.Title,
+                Description = p.Description,
+                Active=p.Active,
+                InsideCity=p.InsideCity,
+                OutsideCity=p.OutSideCity
             }).ToList();
         }
 
@@ -48,7 +52,8 @@ namespace PostModule.Infrastracture.EF.Repositories
                 StateNonClosePricePlus = p.StateNonClosePricePlus,
                 Status = p.Status,
                 TehranPricePlus = p.TehranPricePlus,
-                Title = p.Title
+                Title = p.Title,
+                Description = p.Description
             }).SingleOrDefault(p => p.Id == id);
         }
     }
