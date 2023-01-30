@@ -31,7 +31,7 @@ namespace PostModule.Application.Services
                 return new OperationResult(false, ValidationMessages.DuplicatedMessage, "Title");
             Post post = new(command.Title, command.Status, command.TehranPricePlus, command.StateCenterPricePlus,
                command.CityPricePlus, command.InsideStatePricePlus, command.StateClosePricePlus,
-               command.StateNonClosePricePlus);
+               command.StateNonClosePricePlus,command.Description);
             if (_postRepository.Create(post))
                 return new(true);
 
@@ -45,7 +45,7 @@ namespace PostModule.Application.Services
             var post = _postRepository.GetById(command.Id);
              post.Edit(command.Title, command.Status, command.TehranPricePlus, command.StateCenterPricePlus,
                command.CityPricePlus, command.InsideStatePricePlus, command.StateClosePricePlus,
-               command.StateNonClosePricePlus);
+               command.StateNonClosePricePlus,command.Description);
             if (_postRepository.Save())
                 return new(true);
 
@@ -60,6 +60,20 @@ namespace PostModule.Application.Services
         public EditPost GetForEdit(int id)
         {
             return _postRepository.GetForEdit(id);
+        }
+
+        public bool InsideCityChange(int id)
+        {
+            var post = _postRepository.GetById(id);
+            post.InsideCityChange();
+            return _postRepository.Save();
+        }
+
+        public bool OutSideCityChange(int id)
+        {
+            var post = _postRepository.GetById(id);
+            post.OutSideCityChange();
+            return _postRepository.Save();
         }
     }
 }

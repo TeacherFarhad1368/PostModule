@@ -36,7 +36,7 @@ namespace Peresantation.WebApi.Controllers
             if (res.Success) return Ok();
             return BadRequest(new { message = res.Message });
         }
-        [HttpPatch]
+        [HttpPatch("[action]")]
         public IActionResult Edit([FromBody] EditPost model)
         {
             if (!ModelState.IsValid)
@@ -44,6 +44,24 @@ namespace Peresantation.WebApi.Controllers
             var res = _postApplication.Edit(model);
             if (res.Success) return NoContent();
             return BadRequest(new { message = res.Message });
+        }
+        [HttpPatch("[action]/{id}")]
+        public IActionResult ChangeActive(int id)
+        {
+            if (_postApplication.ActivationChange(id)) return StatusCode(200);
+            return NotFound();
+        }
+        [HttpPatch("[action]/{id}")]
+        public IActionResult ChangeInsideCity(int id)
+        {
+            if (_postApplication.InsideCityChange(id)) return StatusCode(200);
+            return NotFound();
+        }
+        [HttpPatch("[action]/{id}")]
+        public IActionResult ChangeOutSideCity(int id)
+        {
+            if (_postApplication.OutSideCityChange(id)) return StatusCode(200);
+            return NotFound();
         }
     }
 }
